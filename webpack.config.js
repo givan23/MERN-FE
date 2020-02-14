@@ -4,22 +4,19 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-
-
 module.exports = {
 
     mode: 'development',
     entry: {
-      mern: "./app/index-mern.js",
-      //"clientlib.all": "./app/Clientlibs/ClientlibAll.js"
+      mern: "./app/index-mern.js"
     },
     output: {
-      filename: '[name].js',
       path: path.resolve(__dirname, 'dist'),
+      filename: '[name].js',                              //[name] take a entry name "mern"
       publicPath: '/'
     },
     plugins: [
-      new CleanWebpackPlugin(['dist']),
+      new CleanWebpackPlugin(['dist']),                   //clean the folder "dist" in the tree
       new CopyWebpackPlugin([
         {from: 'public/index.html', to: 'index.html'},
         {from: `public/images/`, to: 'images/'},
@@ -28,43 +25,31 @@ module.exports = {
 
       ]),
       new MiniCssExtractPlugin({filename: `[name].css`}),
-      new WriteFilePlugin(),
+      new WriteFilePlugin(),                             //add the folder "dist" in the tree
     ],
   module: {
-    rules: [
-      {
-        test: /\.less$/i,
-        use: [ MiniCssExtractPlugin.loader, 'css-loader', 'less-loader' ]
-      },
-      {
-        test: /\.css$/i,
-        use: [ MiniCssExtractPlugin.loader, 'css-loader' ]
-      },
-      {
-        test: /\.html/,
-        loader: 'file-loader',
-        options: { name: '[name].[ext]' }
-      },
-      {
-        test: /\.(js|jsx)?$/,
-        loader: 'babel-loader',
-      },
-      {
-        test: /\.(eot|ttf|woff|woff2)$/,
-        loader: 'file-loader',
-        options: { name: 'fonts/[name].[ext]' }
-      },
-      {
-        test: /\.(jpe?g|png|gif|svg)$/i,
-        loader: 'file-loader',
-        options: { name: 'images/[name].[ext]' }
-      }
-    ]
+      rules: [
+          {
+              test: /\.(js|jsx)$/,
+              exclude: /node_modules/,
+              use: {
+                  loader: "babel-loader"
+              }
+          },
+          {
+              test: /\.html$/,
+              use: [
+                  {
+                      loader: "html-loader"
+                  }
+              ]
+          }
+      ]
   },
   resolve: { extensions: ['.js', '.jsx', '.json', '.less'] },
   devServer: {
-    port: 8080,
-    host: "127.0.0.1",
+    port: 8005,
+    host: "localhost",
     stats: 'minimal',
     open: true,
     overlay: true,

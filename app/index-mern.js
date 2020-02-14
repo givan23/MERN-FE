@@ -1,10 +1,24 @@
 import React from 'react';
+import {render} from 'react-dom';
+import {Provider} from 'react-redux';
+import store from "./Store/CreateStore";
+import TestContainers from "./Containers/TestContainer";
 
 
-/* CLIENTLIBS */
-//import './Clientlibs/ClientlibAll';
+export const renderTest = store => {
 
-ReactDOM.render(
-<h1>Hello, world!</h1>,
-document.getElementById('root')
-);
+    const testWrapper = document.getElementById('root');
+
+    if (testWrapper) {
+        render(
+            <Provider store={store}>
+                <TestContainers/>
+            </Provider>,
+            testWrapper
+        );
+    } else {
+        console.warn("No testWrapper found!");
+    }
+};
+
+renderTest(store);
