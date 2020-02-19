@@ -2,7 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'react-redux';
 import store from "./Store/CreateStore";
-import TestContainers from "./Containers/TestContainer";
+import TestContainers from "./Containers/HorseRacerContainer";
 
 
 export const renderTest = store => {
