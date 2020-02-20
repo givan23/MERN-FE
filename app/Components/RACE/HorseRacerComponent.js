@@ -1,12 +1,31 @@
 import React from 'react';
 
-const HorseRacerComponent = ({channelId, disciplineDescription, winningPlaceBet, onRaceClick}) => {
+const HorseRacerComponent = ({
+                                 winningRacerName,
+                                 winningOdds,
+                                 placeTwoRacerName,
+                                 placeTwoOdds,
+                                 placeThreeRacerName,
+                                 placeThreeOdds,
+                                 subscribeDate,
+                                 disciplineDescription,
+                                 onRaceClick
+                             }) => {
 
-        console.log("winningPlaceBet", winningPlaceBet);
+    console.log("winningRacerName", winningRacerName);
+    console.log("winningOdds", winningOdds);
+    console.log("placeTwoRacerName", placeTwoRacerName);
+    console.log("placeTwoOdds", placeTwoOdds);
+    console.log("placeThreeRacerName", placeThreeRacerName);
+    console.log("placeThreeOdds", placeThreeOdds);
+    console.log("subscribeDate", subscribeDate);
+    console.log("disciplineDescription", disciplineDescription);
+
     return (
-        <>  <button onClick={onRaceClick}>{"SHOW"}</button>
+        <>
+            <button onClick={onRaceClick}>{"SHOW"}</button>
             <br/>
-            <p>{channelId}</p>
+            <p>{"1"}</p>
             <p>{disciplineDescription}</p>
 
 

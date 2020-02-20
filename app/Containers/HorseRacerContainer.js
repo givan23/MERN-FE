@@ -11,13 +11,17 @@ const mapStateToProps = createSelector(
     [getHorseRacerReducers],
     (horseRacerReducers) => {
 
-        const {channelId = "", disciplineDescription = "", winningPlaceBet = []} = horseRacerReducers;
+        const {winningRacerName = [], winningOdds= [], placeTwoRacerName= [], placeTwoOdds= [], placeThreeRacerName= [], placeThreeOdds= [], subscribeDate= "", disciplineDescription = ""} = horseRacerReducers;
 
         return {
-            channelId,
-            disciplineDescription,
-            winningPlaceBet
-
+            winningRacerName,
+            winningOdds,
+            placeTwoRacerName,
+            placeTwoOdds,
+            placeThreeRacerName,
+            placeThreeOdds,
+            subscribeDate,
+            disciplineDescription
         };
     });
 

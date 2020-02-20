@@ -11,17 +11,16 @@ export const horseRacerManager = createLogic({
    async process({action, getState}, dispatch, done) {
         try {
             const {data} = await axiosService(GET_METHOD);
+            const _data = data[0] || {};
 
-            console.log("data", data);
+            if(_data.code === RESPONSE_CODE_SUCCESS) {
 
-            //if(data.code === RESPONSE_CODE_SUCCESS) {
+                dispatch(storedRaceClick(_data.result));
 
-                // dispatch(storedRaceClick(data.result));
-
-           // } else {
-               // console.error("object no found!");
-            //}
-        } catch (error) { console.error(error.message); }
+           } else {
+            console.error("object no found!");
+            }
+        } catch (error) { console.error(error); }
 
         done();
     }
@@ -29,22 +28,3 @@ export const horseRacerManager = createLogic({
 
 export const HorseRacerManagers = [horseRacerManager];
 
-// const data = {
-//     code: 1,
-//         result: {
-//     channelId: 1,
-//         disciplineDescription: "Campionato Regionale di Ippica",
-//         winningPlaceBet: [
-//         {
-//             win: "Artax",
-//             odds: 300,
-//         },{
-//             win: "Scalto",
-//             odds: 350,
-//         }, {
-//             win: "Furia",
-//             odds: 200,
-//         }
-//     ]
-// }
-// };

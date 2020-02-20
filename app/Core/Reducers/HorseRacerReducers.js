@@ -1,16 +1,26 @@
 import createReducer from "../../Utils/CreateReducerUtils"
 
 const initState = {
-    channelId: 0,
+    winningRacerName: [],
+    winningOdds: [],
+    placeTwoRacerName: [],
+    placeTwoOdds:[],
+    placeThreeRacerName:[],
+    placeThreeOdds:[],
+    subscribeDate: "",
     disciplineDescription: "",
-    winningPlaceBet: []
 };
 
 const storedRaceClick = (draft, action) => {
 
-    draft.channelId = action.response.channelId;
+    draft.winningRacerName = action.response.winningRacerName;
+    draft.winningOdds = action.response.winningOdds;
+    draft.placeTwoRacerName = action.response.placeTwoRacerName;
+    draft.placeTwoOdds = action.response.placeTwoOdds;
+    draft.placeThreeRacerName = action.response.placeThreeRacerName;
+    draft.placeThreeOdds = action.response.placeThreeOdds;
+    draft.subscribeDate = action.response.subscribeDate;
     draft.disciplineDescription = action.response.disciplineDescription;
-    draft.winningPlaceBet = action.response.winningPlaceBet;
 };
 
 export default createReducer({
