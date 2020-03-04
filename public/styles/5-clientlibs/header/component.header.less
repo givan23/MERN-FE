@@ -1,0 +1,114 @@
+.header {
+
+  img {max-width: 100%};
+  div {list-style-type:none};
+  overscroll-behavior-x: none;
+
+  .header-container {
+    width: 100%;
+    height: 80px;
+    margin: 0 0 80px 0;
+    .header-login-container {
+      width: auto;
+      height: 80px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .header-row {
+      display: flex;
+      width: auto;
+      height: 2px;
+      background-color: gold;
+      justify-content: center;
+      margin-top: 5px;
+
+      .header-logo {
+        z-index: 9999;
+        border-radius: 50%;
+        background-color: white;
+
+        @media @phone-screen-portrait {
+          display: none;
+        };
+        @media @phone-screen-landscape {
+          display: none;
+        };
+        @media @tablet-screen-portrait {
+          display: none;
+        };
+        @media @tablet-screen-landscape {
+          display: block;
+          width: 175px;
+          height: 175px;
+          margin-top: -42px;
+        };
+        @media @desktop-screen {
+          width: 180px;
+          height: 180px;
+          margin-top: -44px;
+        };
+
+      }
+
+    }
+
+///////////////////navbar
+    .header-nav-bar-container,
+    .header-nav-bar-left,
+    .header-nav-bar-right {
+      display: flex;
+      justify-content: center;
+      width: auto;
+      flex-wrap: wrap;
+
+      @media @tablet-screen-landscape {
+        justify-content: space-evenly;
+      };
+      @media @desktop-screen {
+        justify-content: space-evenly;
+      };
+
+      .header-nav-item {
+        display: flex;
+        margin: 0 35px 0 35px;
+        @media @phone-screen-portrait {
+          margin: 7px 30px 10px 30px;
+        };
+        @media @phone-screen-landscape {
+          margin: 25px 30px 10px 30px;
+        };
+        @media @tablet-screen-portrait {
+          margin: 25px 40px 0 40px;
+        };
+        @media @tablet-screen-landscape {
+          margin: 25px 45px 0 45px;
+        };
+        @media @desktop-screen {
+          margin: 25px 50px 0 50px;
+        };
+      }
+
+
+    }
+
+////////////////////////
+
+
+    @media @phone-screen-portrait {
+      background-color: red;
+    };
+    @media @phone-screen-landscape {
+      background-color: blue;
+    };
+    @media @tablet-screen-portrait {
+      background-color: green;
+    };
+    @media @tablet-screen-landscape {
+      background-color: darkviolet;
+    };
+    @media @desktop-screen {
+      background-color: gold;
+    };
+  }
+}

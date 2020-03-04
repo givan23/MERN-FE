@@ -5,7 +5,6 @@ import reducers from "./Reducers";
 import managers from "./Managers";
 import {createEnhancer} from "../Utils/CreateStoreUtils";
 
-
 //REDUCERS
 const rootReducer = combineReducers(reducers);
 

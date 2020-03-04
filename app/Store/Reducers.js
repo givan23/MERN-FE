@@ -1,8 +1,8 @@
-import testReducer from '../Core/Reducers/TestReducers'
 import horseRacerReducers from '../Core/Reducers/HorseRacerReducers'
+import centralContentReducers from "../Core/Reducers/CentralContentReducers";
 
 export default {
-    testReducer,
-    horseRacerReducers
+    horseRacerReducers,
+    centralContentReducers
     //%InsertReducer%
 }

@@ -1,4 +1,5 @@
-import {ON_RACER_CLICK, STORED_RACER_CLICK} from "../Costants/TestCostants";
+import {ON_RACER_CLICK, ON_RANDOM_INTERVAL, STORED_RACER_CLICK} from "../Costants/HorseRacerConstants";
+
 
 export function onRaceClick() {
     return {
@@ -12,3 +13,11 @@ export function storedRaceClick(response) {
         response
     };
 }
+
+export function onRandomInterval(randomArray) {
+    return {
+        type: ON_RANDOM_INTERVAL,
+        randomArray
+    };
+}
+

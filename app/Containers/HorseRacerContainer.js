@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from "react-redux";
 import {createSelector} from "reselect";
-import HorseRacerComponent from "../Components/RACE/HorseRacerComponent";
+import HorseRacerComponent from "../Components/Races/HorseRacerComponent";
 import {onRaceClick} from "../Core/Actions/HorseRacerActions";
 
 
@@ -11,17 +11,21 @@ const mapStateToProps = createSelector(
     [getHorseRacerReducers],
     (horseRacerReducers) => {
 
-        const {winningRacerName = [], winningOdds= [], placeTwoRacerName= [], placeTwoOdds= [], placeThreeRacerName= [], placeThreeOdds= [], subscribeDate= "", disciplineDescription = ""} = horseRacerReducers;
+        const {winningRacerName = [], placeTwoRacerName = [], placeThreeRacerName = [], subscribeDate = "", channelId = "", disciplineCode = "", disciplineDescription = "", eventDescription = "", odds} = horseRacerReducers;
+
 
         return {
-            winningRacerName,
-            winningOdds,
-            placeTwoRacerName,
-            placeTwoOdds,
-            placeThreeRacerName,
-            placeThreeOdds,
+            channelId,
+            disciplineCode,
+            eventDescription,
+            disciplineDescription,
             subscribeDate,
-            disciplineDescription
+            //TODO propagate odds
+            winningRacerName,
+            placeTwoRacerName,
+            placeThreeRacerName,
+            odds
+
         };
     });
 

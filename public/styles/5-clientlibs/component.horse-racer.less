@@ -1,0 +1,82 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+
+  .horse-central-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px auto 0 auto;
+    width: 500px;
+    background-color: #298cff;
+    color: white;
+    .horse-event-description {
+      text-align: center;
+      font-size: 20px;
+      line-height: 46px;
+      border: 1px solid white;
+      width: 100%;
+      height: 50px;
+    }
+    .horse-bet-container {
+      display: flex;
+      width: 100%;
+      .horse-title-bet {
+        text-align: center;
+        line-height: 46px;
+        border: 1px solid white;
+        width: 33.65%;
+        height: 50px;
+      }
+    }
+    .horse-odd-container {
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+      .horse-odd {
+        text-align: center;
+        line-height: 46px;
+        border: 1px solid white;
+        width: 32.93%;
+        height: 50px;
+      }
+
+    }
+  }
+.horse-central-container {
+  .horse-odd-container {
+    .horse-odd:hover {
+      box-shadow: 0 0 15px #86e6f5;
+    }
+  }
+}
+
+.up {
+  animation-name: upOdd;
+  animation-duration: 2s;
+}
+
+@keyframes upOdd {
+  0%   {background-color: #298cff;}
+  50%  {background-color: #4AFB5D;}
+  60%  {background-color: #4AFB5D;}
+  100% {background-color: #298cff;}
+}
+
+.down {
+  animation-name: downOdd;
+  animation-duration: 2s;
+}
+
+@keyframes downOdd {
+  0%   {background-color: #298cff;}
+  50%  {background-color: #FD5F5F;}
+  60%  {background-color: #FD5F5F;}
+  100% {background-color: #298cff;}
+}
+
+
+

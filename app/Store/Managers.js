@@ -1,11 +1,10 @@
-import {TestManagers} from "../Core/Logic/TestManagers";
 import {HorseRacerManagers} from "../Core/Logic/HorseRacerManagers";
+import {CentralContentManagers} from "../Core/Logic/CentralContentManagers";
 
 
 const managers = [
-
-    ...TestManagers,
-    ...HorseRacerManagers
+    ...HorseRacerManagers,
+    ...CentralContentManagers,
     //%InsertManager%
 ];
 
