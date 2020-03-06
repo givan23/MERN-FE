@@ -1,9 +1,9 @@
 import createReducer from "../../Utils/CreateReducerUtils"
 
 
-const storedAliasUrlList = (draft, action) => {
+const storedCardList = (draft, action) => {
 
-    draft.aliasUrlList = action.aliasUrlList;
+    draft.cardList = action.cardList;
 };
 
 const onResizeEvent = (draft, action) => {
@@ -13,12 +13,12 @@ const onResizeEvent = (draft, action) => {
 
 
 const initState = {
-    aliasUrlList: [],
+    cardList: [],
     screenSize: window.innerWidth
 };
 
 export default createReducer({
 
-    STORED_ALIAS_URL_LIST: storedAliasUrlList,
+    STORED_CARD_LIST: storedCardList,
     ON_RESIZE_EVENT: onResizeEvent
 }, initState);

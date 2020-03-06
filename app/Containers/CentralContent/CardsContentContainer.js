@@ -1,8 +1,9 @@
 import React from 'react'
 import {connect} from "react-redux";
 import {createSelector} from "reselect";
-import {CentralContentComponent} from "../../Components/CentralContent/CentralContentComponent";
+import {CardsContentComponent} from "../../Components/CentralContent/CardsContentComponent";
 import {initCentralContent} from "../../Core/Actions/CentralContentActions";
+import {giveMeClass} from "../../Utils/CentralContentUtils";
 
 
 
@@ -13,21 +14,20 @@ class CentralContent extends React.Component {
     }
 
     render(){
-        return <CentralContentComponent {...this.props} />
+        return <CardsContentComponent {...this.props} />
     }
 }
 
-const getAliasUrlList = (state) => state.centralContentReducers.aliasUrlList;
+const getCardList = (state) => state.centralContentReducers.cardList;
 const getScreenSize = (state) => state.centralContentReducers.screenSize;
 
 
 const mapStateToProps = createSelector(
-    [getAliasUrlList, getScreenSize],
-    (aliasUrlList, screenSize) => {
+    [getCardList, getScreenSize],
+    (cardList, screenSize) => {
 
         return {
-            aliasUrlList,
-            screenSize
+            cardList: giveMeClass(cardList, screenSize),
         };
     }
 );

@@ -12,7 +12,7 @@ import {
 } from "./Core/Costants/IndexConstants";
 import HeaderContainer from "./Containers/Header/HeaderContainer";
 import FooterContainer from "./Containers/Footer/FooterContainer";
-import CentralContentContainer from "./Containers/CentralContent/CentralContentContainer";
+import CentralContentContainer from "./Containers/CentralContent/CardsContentContainer";
 import {ListenerUtils} from "./Utils/ListenerUtils";
 
 

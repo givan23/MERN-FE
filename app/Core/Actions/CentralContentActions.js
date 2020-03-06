@@ -1,4 +1,4 @@
-import {INIT_CENTRAL_CONTENT, STORED_ALIAS_URL_LIST} from "../Costants/CentralContentConstants";
+import {INIT_CENTRAL_CONTENT, STORED_CARD_LIST} from "../Costants/CentralContentConstants";
 
 export const initCentralContent = () => {
 
@@ -7,10 +7,10 @@ export const initCentralContent = () => {
     }
 };
 
-export const storedAliasUrlList = (aliasUrlList) => {
+export const storedCardList = (cardList) => {
 
     return {
-        type: STORED_ALIAS_URL_LIST,
-        aliasUrlList
+        type: STORED_CARD_LIST,
+        cardList
     }
 };
