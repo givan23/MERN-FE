@@ -18,16 +18,18 @@ class CentralContent extends React.Component {
     }
 }
 
-const getCardList = (state) => state.centralContentReducers.cardList;
+const getCentralContent = (state) => state.centralContentReducers.centralContent;
 const getScreenSize = (state) => state.centralContentReducers.screenSize;
 
 
-const mapStateToProps = createSelector(
-    [getCardList, getScreenSize],
-    (cardList, screenSize) => {
+const mapStateToProps = createSelector (
+    [getCentralContent, getScreenSize],
+    (centralContent, screenSize) => {
+        const { cardList = [], cardStatic = {} } = centralContent;
 
         return {
             cardList: giveMeClass(cardList, screenSize),
+            cardStatic
         };
     }
 );

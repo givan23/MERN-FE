@@ -3,21 +3,22 @@ import {connect} from "react-redux";
 import {createSelector} from "reselect";
 import {HeaderComponent} from "../../Components/Header/HeaderComponent";
 
+const getHeaderContent = (state) => state.centralContentReducers.headerContent;
 
-const mapStateToProps = createSelector(
-    [],
-    () => {
+const mapStateToProps = createSelector (
+    [getHeaderContent],
+    (headerContent) => {
+        const { headerItem = {}, navBarItems = {} } = headerContent;
 
         return {
-
+            headerItem,
+            navBarItems
         };
     });
 
 const mapDispatchToProps = dispatch => {
 
-    return {
-
-    };
+    return {};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderComponent);

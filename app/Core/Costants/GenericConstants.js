@@ -1,3 +1,5 @@
+export const NUMBER_ONE = 1;
+export const NUMBER_TWO = 2;
 export const NUMBER_THREE = 3;
 
 //screen resize

@@ -7,10 +7,10 @@ export const initCentralContent = () => {
     }
 };
 
-export const storedCardList = (cardList) => {
+export const storedCardList = (result) => {
 
     return {
         type: STORED_CARD_LIST,
-        cardList
+        result
     }
 };

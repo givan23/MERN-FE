@@ -1,23 +1,33 @@
 import React from "react";
+import {COL_1} from "../../Core/Costants/CentralContentConstants";
 
-export const CardsContentComponent = ({cardList = []}) => {
+export const CardsContentComponent = ({cardList = [], cardStatic = {}}) => {
 
     return <div className="card-container">
-        <CardsComponent cardList={cardList}/>
+        <CardMainComponent cardStatic={cardStatic}/>
+        <CardsSecondaryComponent cardList={cardList}/>
     </div>
 };
 
-const CardsComponent = ({cardList}) => {
+const CardMainComponent = ({cardStatic}) => {
+    let {url = ""} = cardStatic;
+
+    return <div className={"card-main-container " + COL_1}>
+        <div className="card-main">
+            <img className="card-img" src={url} alt="/#"/>
+        </div>
+    </div>
+};
+
+const CardsSecondaryComponent = ({cardList}) => {
 
     return cardList.map((card, index) => {
         let {url = "", cssClass = ""} = card;
 
-        let hover = index === 0 ? "" : "card-hover";
-
-        return <div key={index} className={cssClass + " card-item-content"}>
-                <div className={ "card-item "+ hover }>
-                    <img className="card-img" src={url} alt="/#"/>
-                </div>
+        return <div key={index} className={"card-secondary-container " + cssClass}>
+            <div className="card-secondary">
+                <img className="card-img" src={url} alt="/#"/>
+            </div>
         </div>
 
     });

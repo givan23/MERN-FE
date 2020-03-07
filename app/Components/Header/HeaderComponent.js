@@ -1,64 +1,53 @@
 import React from "react";
 
-export const HeaderComponent = ({}) => {
+
+export const HeaderComponent = ({headerItem = {}, navBarItems = {}}) => {
 
     return <div className="header">
         <div className="header-container">
-
             <div className="header-login-container">
-                <AccessComponent/>
-                <SignInComponent/>
+                <HeaderItemComponent headerItem={headerItem}/>
             </div>
-
-            <RowComponent/>
-
-
-            <div className="header-nav-bar-container">
-                <div className="header-nav-bar-left">
-                    <div className="header-nav-item">HOME</div>
-                    <div className="header-nav-item">ABOUT US</div>
-                </div>
-                <div className="header-nav-bar-right">
-                    <div className="header-nav-item">SPONSOR</div>
-                    <div className="header-nav-item">CONTACT</div>
-                </div>
-            </div>
-
+            <div className="header-row"/>
+            <NavBarComponent navBarItems={navBarItems}/>
         </div>
     </div>
 };
 
-const AccessComponent = () => {
+const HeaderItemComponent = ({headerItem}) => {
+    const {access = {}, singIn = {}} = headerItem;
 
-    return <div className="header-access">
-        <a href={"/access"}>
-            <p className="header-text-title">ACCESS</p>
-        </a>
-    </div>
+    return <>
+             <div className="header-access">
+                 <a href={access.url || ""}>
+                     <p className="header-text-title">{access.name || ""}</p>
+                 </a>
+             </div>
+             <div className="header-sign-in">
+                 <a href={singIn.url || ""}>
+                     <p className="header-text-title">{singIn.name || ""}</p>
+                 </a>
+             </div>
+          </>
 };
 
-const LogoComponent = () => {
+const NavBarComponent = ({navBarItems}) => {
+    const {home={},aboutUs={},logo={},sponsor={},contactUs={}} = navBarItems;
 
-    return <div className="header-logo">
-        <img src={"/#"} alt={"/#"}/>
-    </div>
+    return <nav className="header-nav-bar-container">
+        <a href={home.url || ""} className="header-nav-item">{home.name || ""}</a>
+        <a href={aboutUs.url || ""} className="header-nav-item">{aboutUs.name || ""}</a>
+        <div className="header-logo-container">
+            <img src={logo.url || ""} alt={"/#"} className="header-logo"/>
+        </div>
+        <a href={sponsor.url || ""} className="header-nav-item">{sponsor.name || ""}</a>
+        <a href={contactUs.url || ""} className="header-nav-item">{contactUs.name || ""}</a>
+    </nav>
 };
 
-const SignInComponent = () => {
 
-    return <div className="header-sign-in">
-        <a href={"/sign-in"}>
-            <p className="header-text-title">SIGN IN</p>
-        </a>
-    </div>
-};
 
-const RowComponent = () => {
 
-    return <div className="header-row">
-        <LogoComponent/>
-    </div>
-};
 
 
 

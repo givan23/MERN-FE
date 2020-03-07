@@ -1,10 +1,10 @@
 .card-container {
   display: flex;
-  height: 1200px;
+  height: 1550px;
   flex-direction: row;
   flex-wrap: wrap;
   background-color: white;
-  margin: 0 50px 20px 50px;
+  margin: 0 20px 20px 20px;
 
   @media only screen and @phone-screen-landscape {
     margin: 0 80px 20px 80px;
@@ -19,18 +19,33 @@
     margin: 0 150px 20px 150px;
   };
 
-  .card-item-content {
+  .card-main-container {
     z-index: 1;
+    height: 200px;
     padding: 3px;
 
-    .card-item {
+    .card-main {
       height: 100%;
       background-color: white;
     }
   }
+
+  .card-secondary-container {
+    padding: 3px;
+
+    .card-secondary {
+      height: 100%;
+      background-color: white;
+    }
+  }
+
 }
 
 //:HOVER
-  .card-hover:hover {
-    box-shadow: inset 0 -3px 15px 16px #DEDEDE
+.card-container {
+  .card-secondary-container {
+    .card-secondary:hover {
+      box-shadow: inset 0 -3px 15px 16px #DEDEDE;
+    }
   }
+}

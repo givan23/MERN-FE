@@ -2,8 +2,10 @@ import createReducer from "../../Utils/CreateReducerUtils"
 
 
 const storedCardList = (draft, action) => {
+    const {headerContent = {}, centralContent = {}} = action.result;
 
-    draft.cardList = action.cardList;
+    draft.headerContent = headerContent;
+    draft.centralContent = centralContent;
 };
 
 const onResizeEvent = (draft, action) => {
@@ -13,7 +15,8 @@ const onResizeEvent = (draft, action) => {
 
 
 const initState = {
-    cardList: [],
+    headerContent: {},
+    centralContent: {},
     screenSize: window.innerWidth
 };
 
