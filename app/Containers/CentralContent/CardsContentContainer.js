@@ -2,10 +2,8 @@ import React from 'react'
 import {connect} from "react-redux";
 import {createSelector} from "reselect";
 import {CardsContentComponent} from "../../Components/CentralContent/CardsContentComponent";
-import {initCentralContent} from "../../Core/Actions/CentralContentActions";
+import {initCentralContent, onDetailCard} from "../../Core/Actions/CentralContentActions";
 import {giveMeClass} from "../../Utils/CentralContentUtils";
-
-
 
 class CentralContent extends React.Component {
 
@@ -27,6 +25,7 @@ const mapStateToProps = createSelector (
     (centralContent, screenSize) => {
         const { cardList = [], cardStatic = {} } = centralContent;
 
+
         return {
             cardList: giveMeClass(cardList, screenSize),
             cardStatic
@@ -36,7 +35,9 @@ const mapStateToProps = createSelector (
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        initCentralContent : () => dispatch(initCentralContent())
+        initCentralContent : () => dispatch(initCentralContent()),
+        onDetailCard : (code) => dispatch(onDetailCard(code))
+
     };
 };
 

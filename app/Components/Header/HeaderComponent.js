@@ -19,12 +19,12 @@ const HeaderItemComponent = ({headerItem}) => {
 
     return <>
              <div className="header-access">
-                 <a href={access.url || ""}>
+                 <a href={access.path || ""}>
                      <p className="header-text-title">{access.name || ""}</p>
                  </a>
              </div>
              <div className="header-sign-in">
-                 <a href={singIn.url || ""}>
+                 <a href={singIn.path || ""}>
                      <p className="header-text-title">{singIn.name || ""}</p>
                  </a>
              </div>
@@ -35,13 +35,13 @@ const NavBarComponent = ({navBarItems}) => {
     const {home={},aboutUs={},logo={},sponsor={},contactUs={}} = navBarItems;
 
     return <nav className="header-nav-bar-container">
-        <a href={home.url || ""} className="header-nav-item">{home.name || ""}</a>
-        <a href={aboutUs.url || ""} className="header-nav-item">{aboutUs.name || ""}</a>
+        <a href={home.path || ""} className="header-nav-item">{home.name || ""}</a>
+        <a href={aboutUs.path || ""} className="header-nav-item">{aboutUs.name || ""}</a>
         <div className="header-logo-container">
-            <img src={logo.url || ""} alt={"/#"} className="header-logo"/>
+            <img src={logo.path || ""} alt={"/#"} className="header-logo"/>
         </div>
-        <a href={sponsor.url || ""} className="header-nav-item">{sponsor.name || ""}</a>
-        <a href={contactUs.url || ""} className="header-nav-item">{contactUs.name || ""}</a>
+        <a href={sponsor.path || ""} className="header-nav-item">{sponsor.name || ""}</a>
+        <a href={contactUs.path || ""} className="header-nav-item">{contactUs.name || ""}</a>
     </nav>
 };
 

@@ -35,3 +35,21 @@ export const giveMeClass = (cardList, screenSize) => {
 
     return cardListNew;
 };
+
+//this method selects cardList based on the code chosen
+export const selectCardList = (data, code) => {
+
+    const {result = {}} = data;
+    const {centralContent = {}} = result;
+    const {cardStatic = {}} = centralContent;
+
+    let cardList = centralContent[code].cardList;
+
+    return {
+        ...result,
+        centralContent: {
+            cardStatic,
+            cardList: cardList || []
+        }
+    };
+};
