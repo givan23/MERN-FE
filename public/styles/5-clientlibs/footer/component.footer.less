@@ -1,22 +1,57 @@
-.container-footer {
-  width: auto;
-  height: 250px;
-  margin: 0 20px 20px 20px;
-  border-radius: 20px;
+////////////////////////////////////////////////
+//
+// FOOTER SETTINGS
+//
+////////////////////////////////////////////////
 
-  @media only screen and @phone-screen-portrait {
-    background-color: red;
-  };
-  @media only screen and @phone-screen-landscape {
-    background-color: blue;
-  };
-  @media only screen and @tablet-screen-portrait {
-    background-color: green;
-  };
-  @media only screen and @tablet-screen-landscape {
-    background-color: darkviolet;
-  };
-  @media only screen and @desktop-screen {
-    background-color: gold;
-  };
+.footer-container {
+  list-style-type: none;
+}
+
+
+
+////////////////////////////////////////////////
+//
+// FOOTER CONTENT
+//
+////////////////////////////////////////////////
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  margin: 0 20px 0 0;
+  padding: 50px 50px;
+  background-color: #272727;
+
+}
+
+
+.footer-container {
+  .footer-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    ul {
+      margin: 0 0 0 -37px;
+      list-style-type: none;
+      li {
+        color: white;
+      }
+    }
+  }
+
+  .footer-vertical-line {
+    height: 80%;
+    margin: 0 50px 0 50px;
+    border-left: 1.2px solid lightgray;
+  }
+  .col-3 {
+    width: 27%;
+  }
 }

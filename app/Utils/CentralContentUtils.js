@@ -1,4 +1,10 @@
-import {NUMBER_ONE, NUMBER_THREE, NUMBER_TWO, TABLET_SCREEN_768} from "../Core/Costants/GenericConstants";
+import {
+    NUMBER_ONE,
+    NUMBER_THREE,
+    NUMBER_TWO,
+    PHONE_SCREEN_480,
+    TABLET_SCREEN_768
+} from "../Core/Costants/GenericConstants";
 import {COL_1, COL_2, COL_3} from "../Core/Costants/CentralContentConstants";
 
 export const giveMeClass = (cardList, screenSize) => {
@@ -7,26 +13,40 @@ export const giveMeClass = (cardList, screenSize) => {
 
     cardList.map((item, i) => {
 
-      if(screenSize > TABLET_SCREEN_768) {
+        if (screenSize > TABLET_SCREEN_768) {
 
-        cssClass = COL_3;
+            cssClass = COL_3;
 
-        //7 ELEMENTS
-        cssClass = ((cardList.length % NUMBER_THREE === NUMBER_ONE) && (i === cardList.length - NUMBER_ONE)) ? COL_1 : cssClass;
+            //7 ELEMENTS
+            cssClass = ((cardList.length % NUMBER_THREE === NUMBER_ONE) && (i === cardList.length - NUMBER_ONE)) ? COL_1 : cssClass;
 
-        //8 ELEMENTS
-        cssClass = ((cardList.length % NUMBER_THREE === NUMBER_TWO) && (i === cardList.length - NUMBER_TWO)) ? COL_2 : cssClass;
+            //8 ELEMENTS
+            cssClass = ((cardList.length % NUMBER_THREE === NUMBER_TWO) && (i === cardList.length - NUMBER_TWO)) ? COL_2 : cssClass;
 
-        cssClass = ((cardList.length % NUMBER_THREE === NUMBER_TWO) && (i === cardList.length - NUMBER_ONE)) ? COL_2 : cssClass;
+            cssClass = ((cardList.length % NUMBER_THREE === NUMBER_TWO) && (i === cardList.length - NUMBER_ONE)) ? COL_2 : cssClass;
 
-                cardListNew.push({
-                    ...item,
-                    cssClass: cssClass
-                });
+            cardListNew.push({
+                ...item,
+                cssClass: cssClass
+            });
 
-        }else {
+        }
 
-          cardListNew.push({
+        if ((screenSize < TABLET_SCREEN_768) && (screenSize > PHONE_SCREEN_480)) {
+
+            cssClass = COL_2;
+
+            //8 ELEMENTS
+            cssClass = ((cardList.length % NUMBER_TWO === NUMBER_ONE) && (i === cardList.length - NUMBER_ONE)) ? COL_1 : cssClass;
+
+            cardListNew.push({
+                ...item,
+                cssClass: cssClass
+            });
+        }
+        if (screenSize < PHONE_SCREEN_480) {
+
+            cardListNew.push({
                 ...item,
                 cssClass: COL_1
             });
@@ -52,4 +72,11 @@ export const selectCardList = (data, code) => {
             cardList: cardList || []
         }
     };
+};
+
+export const giveMeClassFooter = (screenSize) => {
+
+    let cssClass = screenSize > TABLET_SCREEN_768 ? COL_3 : COL_1;
+
+    return cssClass;
 };

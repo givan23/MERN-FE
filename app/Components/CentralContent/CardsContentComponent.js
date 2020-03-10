@@ -25,7 +25,7 @@ const CardsSecondaryComponent = ({cardList, onDetailCard}) => {
         let {path = "", code= "", cssClass = ""} = card;
          const handlerDetailCard = () => onDetailCard(code);
 
-        return <div key={index} className={"card-secondary-container " + cssClass} onClick={code ? handlerDetailCard : null}>>
+        return <div key={index} className={"card-secondary-container " + cssClass} onClick={code ? handlerDetailCard : null}>
             <div className="card-secondary">
                 <img className="card-img" src={path} alt="/#"/>
             </div>
