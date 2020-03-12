@@ -1,47 +1,43 @@
 import React from "react";
-import {COL_3} from "../../Core/Costants/CentralContentConstants";
+import {LineSeparatorComponent} from "./FooterChildren/LineSeparatorComponent";
+import {FollowUsComponent} from "./FooterChildren/FollowUsComponent";
+import {NUMBER_ONE, NUMBER_TWO} from "../../Core/Costants/GenericConstants";
 
-export const FooterComponent = ({cssClass = "", firstSectionList, secondSectionList, thirdSectionList, numberSections}) => {
+
+export const FooterComponent = ({cssClass = "", footerSectionList = []}) => {
 
     return <div className="footer-container">
-        <div className="footer-section-container">
-
-            <div className={"footer-section " + cssClass}>
-                <ul>
-                    <SectionDetail SectionList={firstSectionList}/>
-                </ul>
-            </div>
-
-            <DivideSectionLineComponent cssClass={cssClass}/>
-
-            <div className={"footer-section " + cssClass}>
-                <ul>
-                    <SectionDetail SectionList={secondSectionList}/>
-                </ul>
-
-            </div>
-
-            <DivideSectionLineComponent cssClass={cssClass}/>
-
-            <div className={"footer-section " + cssClass}>
-                <ul>
-                    <SectionDetail SectionList={thirdSectionList}/>
-                </ul>
-            </div>
+        <div
+            className={footerSectionList.length < 3 ? "footer-section-container justify-space-evenly" : "footer-section-container"}>
+            <SectionListComponent cssClass={cssClass} footerSectionList={footerSectionList}/>
         </div>
     </div>
 };
 
+const SectionListComponent = ({cssClass = "", footerSectionList = []}) => {
 
-const SectionDetail = ({SectionList = []})=> {
+    return footerSectionList.map((detailObj, index) => {
+        let detailList = Object.values(detailObj);
+        let details = detailList.reduce((acc, detail) => detail, []);
+        let addMarginLeft = (index === footerSectionList.length - NUMBER_ONE) ? "add-margin-left" : null;
 
-    return SectionList.map((item,i) => {
-        return <li key={i}><div>{item.detail}</div></li>
-    });
+        return <>
+            <div key={index} className={"footer-section " + cssClass}>
+                <ul>
+                    <SectionDetailsComponent details={details} addMarginLeft={addMarginLeft}/>
+                    {(index === footerSectionList.length - NUMBER_ONE) ? <FollowUsComponent/> : null}
+                </ul>
+            </div>
+            <LineSeparatorComponent index={index} footerSectionList={footerSectionList} cssClass={cssClass}/>
+        </>
+    })
 };
 
-const DivideSectionLineComponent = ({cssClass})=> {
+const SectionDetailsComponent = ({details = [], addMarginLeft = ""}) => {
 
-    return <div className={ cssClass === COL_3 ?  "footer-vertical-line" : "footer-horizontal-line" }/>
-
+    return details.map((detail, i) => {
+        return <li key={i} className={addMarginLeft}>
+            <a href={detail.url}>{detail.detail}</a>
+        </li>
+    });
 };

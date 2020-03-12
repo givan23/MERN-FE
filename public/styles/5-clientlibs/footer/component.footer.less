@@ -6,12 +6,23 @@
 
 .footer-container {
   list-style-type: none;
+
+  .col-3 {
+    width: 28%;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
 }
 
 
 ////////////////////////////////////////////////
 //
-// FOOTER CONTENT
+// FOOTER CONTAINER
 //
 ////////////////////////////////////////////////
 
@@ -24,51 +35,83 @@
 
 }
 
-.footer-container {
-  .footer-section-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
 
-    @media only screen and @tablet-screen-min-1024 {
-      flex-wrap: nowrap;
-    };
+////////////////////////////////////////////////
+//
+// FOOTER SECTION
+//
+////////////////////////////////////////////////
 
-    .footer-section {
-      display: flex;
-      justify-content: center;
+.footer-section-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 
-
-      ul {
-        margin: 0 0 0 -37px;
-        list-style-type: none;
-
-        li div {
-          color: white;
-          margin: 5px 0;
-        }
-      }
-    }
-
-    .footer-vertical-line {
-      display: none;
-      @media only screen and @tablet-screen-min-1024 {
-        display: block;
-      };
-      height: auto;
-      margin: 0 50px 0 50px;
-      border-left: 1.2px solid #d3d3d329;
-    }
-
-    .footer-horizontal-line {
-      width: 100%;
-      margin: 20px 50px 20px 50px;
-      border-bottom: 1.2px solid #d3d3d329;
-    }
-
-    .col-3 {
-      width: 27%;
-    }
-
+  @media only screen and @tablet-screen-min-1024 {
+    flex-wrap: nowrap;
   }
+}
+
+.footer-section {
+  display: flex;
+  justify-content: center;
+
+  li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  a {
+    color: #AEAEAE;
+    text-decoration: none;
+  }
+
+}
+
+//:HOVER
+a:hover {
+  color: white;
+}
+
+//USE REACT
+.justify-space-evenly {
+  justify-content: space-evenly;
+}
+.add-margin-left {
+  margin-left: 48px;
+  @media only screen and @tablet-screen-min-768 {
+    margin-left: 60px;
+  }
+  @media only screen and @tablet-screen-min-1024 {
+    margin-left: 28px;
+  }
+  @media only screen and @tablet-screen-min-1024 {
+    margin-left: 0;
+  }
+
+}
+
+
+//////////////////////////////////////////////
+//
+//  FOOTER LINE SEPARATOR
+//
+//////////////////////////////////////////////
+
+.footer-vertical-line {
+  display: none;
+  height: auto;
+  border-left: 1.2px solid #d3d3d329;
+  margin: 0 50px 0 50px;
+
+  @media only screen and @tablet-screen-min-1024 {
+    display: block;
+  };
+}
+
+.footer-horizontal-line {
+  width: 100%;
+  border-bottom: 1.2px solid #d3d3d329;
+  margin: 20px 50px 20px 50px;
+
 }
